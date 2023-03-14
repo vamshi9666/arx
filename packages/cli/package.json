@@ -1,0 +1,24 @@
+{
+  "name": "arx-cli",
+  "version": "0.0.01",
+  "description": "",
+  "type": "module",
+  "bin": {
+    "arx": "./bin/cli.js"
+  },
+  "scripts": {
+    "dev": "esbuild ./src/cli.ts  --bundle --format=esm --external:esbuild --watch  --platform=node --outdir=dist",
+    "build": "esbuild ./src/cli.ts  --bundle --format=esm --external:esbuild --platform=node --outdir=dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cac": "^6.7.14",
+    "chalk": "^5.2.0",
+    "esbuild": "^0.17.11"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.6"
+  }
+}
