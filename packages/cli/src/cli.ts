@@ -6,6 +6,7 @@ import * as esbuild from "esbuild";
 import { VERSION } from "./constants";
 import * as fs from "node:fs/promises";
 import chalk from "chalk";
+import { cleanDir } from "./helpers";
 
 const cli = cac("arx");
 cli
@@ -35,7 +36,19 @@ cli
 
     // console.log("server is ", host, port);
 
-    console.log(`dev server running on http://${host}:${port} `);
+    console.log(chalk.green(`dev server running on http://${host}:${port} `));
+    // console.log("\n");
+
+    const codeSnipper = `
+  <script src="${outputFilePath}"> </script>\n`;
+
+    console.log(chalk.blueBright(codeSnipper));
+
+    console.log(
+      chalk.green(
+        "Copy this snippet from above and place it component you're working"
+      )
+    );
   });
 
 cli
@@ -82,16 +95,21 @@ cli
 
     // console.log("server is ", host, port);
   });
+
+cli
+  .command("deploy ", "deployes a component bundle to khoros assets")
+  .option(
+    "community-url",
+    "url of community , to which you want to upload bundle",
+    {
+      type: ["string"],
+    }
+  )
+  .action((dir, options) => {
+    console.log("input sare ", dir, options);
+  });
+
 cli.help();
 cli.version(VERSION);
 
 cli.parse();
-
-async function cleanDir() {
-  fs.readdir(path.resolve(path.join("dist"))).then((currentFiles) => {
-    currentFiles.forEach((eachFilePath) => {
-      fs.unlink(path.join("dist", eachFilePath));
-    });
-    // console.log("types ", typeof currentFiles, Array.isArray(currentFiles));
-  });
-}

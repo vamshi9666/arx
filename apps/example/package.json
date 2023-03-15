@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "arx dev src/main.tsx",
     "build": "arx build src/main.tsx --out-name=grouphubs-landing ",
+    "deploy": "arx deploy ",
     "preview": "vite preview"
   },
   "dependencies": {

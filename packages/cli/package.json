@@ -1,6 +1,6 @@
 {
   "name": "arx-cli",
-  "version": "0.0.01",
+  "version": "0.0.5",
   "description": "",
   "type": "module",
   "bin": {
