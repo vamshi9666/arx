@@ -9,7 +9,7 @@ import chalk from "chalk";
 
 const cli = cac("arx");
 cli
-  .command("dev <component-file>", "runns a dev server")
+  .command("dev <component-file>", "runs a dev server")
   .option("--skip-clean", "name of bundle file")
 
   // .option("-r, --recursive", "Remove recursively")
